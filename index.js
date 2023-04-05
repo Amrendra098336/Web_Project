@@ -64,7 +64,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.get("/", async (req, res) => {
-  res.send("hello");
+  res.redirect("/form");
 });
 
 app.get("/form", function (req, res) {
