@@ -1,0 +1,73 @@
+<div class="d-flex flex-row bd-highlight justify-content-around">
+    <h1 class="text-primary">Page : <small class="text-success">{{resultData.page}}</small></h1>
+    <h1 class="text-primary">Per Page :<small class="text-success"> {{resultData.perPage}}</small></h1>
+    <h1 class="text-primary">total Records : <small class="text-success"> {{resultData.total}}</small></h1>
+    <h1 class="text-primary">total Pages : <small class="text-success"> {{resultData.totalPages}}</small></h1>
+</div>
+<div class="table-responsive">
+    <table class="table table-success table-striped table-bordered border-primary align-middle me-5" style="
+    margin-left: 5px;
+    margin-right: 30px;
+    width: 90%;
+">
+
+        <thead>
+            <tr>
+                <th>Sl. No.</th>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>Satisfaction</th>
+                <th>Sale Date</th>
+                <th>Store Location</th>
+                <th>Coupon Used</th>
+                <th>Purchase Method</th>
+                <th>Items</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each resultData.data}}
+            <tr>
+                <td>{{@index @index}}</td>
+                <td>{{this._id}}</td>
+                <td>{{this.customer.email}}</td>
+                <td>{{this.customer.gender}}</td>
+                <td>{{this.customer.age}}</td>
+                <td>{{this.customer.satisfaction}}</td>
+                <td>{{this.saleDate}}</td>
+                <td>{{this.storeLocation}}</td>
+                <td>{{this.couponUsed}}</td>
+                <td>{{this.purchaseMethod}}</td>
+                <td>
+                    <table class="table table-success table-striped table-bordered border-primary table-sm" style="
+    margin-right: 30px;">
+                        <thead>
+                            <tr>
+                                 <th>Sl. No.</th>
+                                <th>Name</th>
+                                <th>price</th>
+                                <th>Quantity</th>
+                                <th>Tags</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each this.items}}
+                            <tr>
+                                <td>{{@index @index}}</td>
+                                <td>{{this.name}}</td>
+                                <td>{{this.price}}</td>
+                                <td>{{this.quantity}}</td>
+                                <td>{{this.tags}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
